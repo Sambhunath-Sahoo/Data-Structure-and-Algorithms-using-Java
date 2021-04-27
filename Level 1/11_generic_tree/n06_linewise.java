@@ -38,7 +38,7 @@ public class n06_linewise {
         }
     }
 
-    public static void levelorderlinewise(Node node) {
+    public static void levelorderlinewise1(Node node) {
        Queue<Node> q = new ArrayDeque<>();
        q.add(node);
 
@@ -54,6 +54,27 @@ public class n06_linewise {
            System.out.println();
        }
    }
+
+//    using 2 queue
+ public static void levelorderlinewise(Node node) {
+        Queue<Node> pq = new ArrayDeque<>();
+        Queue<Node> cq = new ArrayDeque<>();
+        pq.add(node);
+        while(pq.size() > 0) {
+            Node rn = pq.remove();
+            System.out.print(rn.data + " ");
+            for(Node child: rn.children) {
+                cq.add(child);
+            }
+            if(pq.size() == 0) {
+                pq = cq;
+                cq = new ArrayDeque<>();
+                System.out.println();
+            }
+        }
+
+   }
+
 
     public static void main(String args[]) {
         Integer[] arr = {10, 20, 50, null, 60, null, null, 30, 70, null, 80, 110, null, 120, null, null, 90, null, null, 40, 100, null, null, null};

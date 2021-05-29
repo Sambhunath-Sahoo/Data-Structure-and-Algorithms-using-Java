@@ -1,5 +1,4 @@
 // Words - K Length Words - 2
-// Words - K Length Words - 2
 import java.io.*;
 import java.util.*;
 
